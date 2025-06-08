@@ -1,0 +1,9 @@
+# Option for the database
+database:
+  type: "mysql"
+  host: "localhost"
+  port: "3306"
+  database: "EcoLink"
+
+# Name of the file for the translation
+translation: "message.fr.yaml"
