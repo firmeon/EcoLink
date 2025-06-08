@@ -1,9 +1,11 @@
 # Option for the database
 database:
-  type: "mysql"
+  type: "mysql" # Only tested the mysql version
   host: "localhost"
   port: "3306"
   database: "EcoLink"
+  user: "minecraft"
+  password: "password"
 
 # Name of the file for the translation
-translation: "message.fr.yaml"
+translation: "message.fr.yml"

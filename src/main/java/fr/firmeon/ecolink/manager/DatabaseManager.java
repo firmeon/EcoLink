@@ -11,7 +11,7 @@ public class DatabaseManager {
     private final String password;
     private Connection connection;
 
-    public DatabaseManager(String type, String host, int port, String database, String username, String password) {
+    public DatabaseManager(String type, String host, String port, String database, String username, String password) {
         this.url = "jdbc:" + type + "://" + host + ":" + port + "/" + database + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
         this.username = username;
         this.password = password;

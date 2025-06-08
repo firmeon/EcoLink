@@ -1,0 +1,7 @@
+name: EcoLink
+version: '1.0-SNAPSHOT'
+main: fr.firmeon.ecolink.EcoLink
+api-version: '1.21'
+prefix: EcoLink
+authors: [ firmeon ]
+description: A plugin for economy
