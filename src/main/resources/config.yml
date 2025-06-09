@@ -9,3 +9,6 @@ database:
 
 # Name of the file for the translation
 translation: "message.fr.yml"
+
+# Default money for a personal account
+default-money: 200

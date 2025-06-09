@@ -10,11 +10,11 @@ public class Translator {
         this.translationConfig = new ConfigFile(EcoLink.getInstance().getConfig().getString("translation"));
     }
 
-    public String trans(String path){
-        return translationConfig.getConfig().getString(path);
-    }
-
     public void reloadTranslation(){
         this.translationConfig.reload();
+    }
+
+    public static String trans(String path){
+        return EcoLink.getInstance().getTranslator().translationConfig.getConfig().getString(path);
     }
 }

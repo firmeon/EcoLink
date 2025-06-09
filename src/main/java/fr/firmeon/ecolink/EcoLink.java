@@ -1,6 +1,6 @@
 package fr.firmeon.ecolink;
 
-import fr.firmeon.ecolink.manager.DatabaseManager;
+import fr.firmeon.ecolink.util.Database;
 import fr.firmeon.ecolink.util.Translator;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -9,18 +9,18 @@ public final class EcoLink extends JavaPlugin {
 
     private static EcoLink instance;
     private Translator translator;
-    private DatabaseManager databaseManager;
+    private Database database;
 
     @Override
     public void onEnable() {
         instance = this;
 
         saveDefaultConfig();
-        translator = new Translator();
+        this.translator = new Translator();
 
         FileConfiguration config = getConfig();
 
-        databaseManager = new DatabaseManager(
+        this.database = new Database(
                 config.getString("database.type"),
                 config.getString("database.host"),
                 config.getString("database.port"),
@@ -28,22 +28,23 @@ public final class EcoLink extends JavaPlugin {
                 config.getString("database.user"),
                 config.getString("database.password")
         );
+        this.database.createTables();
     }
 
     @Override
     public void onDisable() {
-
+        this.database.disconnect();
     }
 
     public static EcoLink getInstance() {
         return instance;
     }
 
-    public DatabaseManager getDatabaseManager() {
-        return databaseManager;
+    public Database getDatabase() {
+        return this.database;
     }
 
     public Translator getTranslator() {
-        return translator;
+        return this.translator;
     }
 }
